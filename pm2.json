@@ -1,0 +1,17 @@
+{
+    "apps": [
+      {
+        "name": "my-nuxt-project",
+        "script": "api-server/index.js",
+        "instances": "max",
+        "exec_mode": "cluster",
+        "watch": false,
+        "ignore_watch": ["node_modules", "lib/chromium", "test", "logs", "data", ".git", ".vscode"],
+        "instance_var": "INSTANCE_ID",
+        "env": {
+          "DEBUG": "starlab:*"
+        },
+        "log_date_format": "YYYY-MM-DD HH:mm Z"
+      }
+    ]
+  }
