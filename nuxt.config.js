@@ -1,6 +1,10 @@
 export default {
   mode: 'universal',
   telemetry: false,
+  server: {
+    host: '127.0.0.1',
+    port: 3015
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
