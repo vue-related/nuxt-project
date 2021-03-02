@@ -1,0 +1,77 @@
+---
+# server config.
+port: 3010
+host: 127.0.0.1
+runMode: development #development/production
+language: zh-CN #zh-CN/en-US
+authType: ldap # ldap or sso
+#
+# system log settings.
+log:
+  path: ./logs
+  maxLogSize: 52428800 # 50MB
+  backups: 100
+
+# keys, 密钥不上库，本配置留空，部署时替换
+appKey: ''
+AESsecret: ''
+
+# 上传的文件存储目录
+# 下述路径都是相对于工程根目录的**相对路径**
+uploadFilePath:
+  temp: ./upload/temp/
+  business: ./upload/business/
+  businessRepos:
+    PSS: # 同一部门下的多个产品由一个仓库管理规则文件，对应safeFuncGuard_permision.yml中的department
+      repoName: CICD%2FpipChecker # 接入需提供的参数1
+      admin: bogking # 接入需提供的参数2
+      subAdmin: zhangsan # 接入需提供的参数3
+      srcBranch: personal/bogking # 接入需提供的参数4
+      destBranch: master # 接入需提供的参数5
+      privateToken: xxx # 接入需提供的参数6
+      localRepoPath: /starlab/gitRepos/pipChecker/ # 本地仓库目录，用于提交规则文件
+      # localRepoPath: D:\coding\isource\starlab\SafeFuncChecker
+      cmd: git add . && git commit -am "更新流水线检查规则" && git push -u origin master:personal/bogking
+
+# cookies settings.
+cookie:
+  key: koa:sess
+  maxAge:
+    short: 86400000 # 24h
+    long: 2592000000 # 30d
+  signd: true
+  secret: '' #密钥不上库，本配置留空，部署时替换
+# session settings.
+session:
+  id: SPS.sid
+  maxAge: 2592000000 # 30d
+  ttl: 2592000 #(s) 30d
+  secret: '' #密钥不上库，本配置留空，部署时替换
+
+# DB infos.
+## redis settings.
+redis:
+  development:
+    ip: ''
+    port: 0
+    pwd: '' #密钥不上库，本配置留空，部署时替换
+    db: 0
+  production:
+    ip: ''
+    port: 0
+    pwd: '' #密钥不上库，本配置留空，部署时替换
+    db: 0
+## mongodb settings.
+mongodb:
+  development:
+    ip: ''
+    port: 0
+    user: ''
+    pwd: '' #密钥不上库，本配置留空，部署时替换
+    dbName: ''
+  production:
+    ip: ''
+    port: 0
+    user: ''
+    pwd: '' #密钥不上库，本配置留空，部署时替换
+    dbName: ''
