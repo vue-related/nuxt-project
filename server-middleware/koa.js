@@ -32,7 +32,8 @@ router.use(async (ctx, next) => {
   next()
 })
 
-router.get('/uuuq', async (ctx, next) => {
+router.get('/server-middleware/user-info', async (ctx, next) => {
+  debugger
   await console.log('in router get')
   next()
   ctx.response.status = 200
@@ -43,6 +44,6 @@ router.get('/uuuq', async (ctx, next) => {
 app.use(router.routes())
 app.use(router.allowedMethods())
 export default {
-  path: '/api',
+  path: '/api/v1',
   handler: app.callback()
 }

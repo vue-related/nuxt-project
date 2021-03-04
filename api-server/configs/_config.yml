@@ -22,7 +22,7 @@ uploadFilePath:
   temp: ./upload/temp/
   business: ./upload/business/
   businessRepos:
-    PSS: # 同一部门下的多个产品由一个仓库管理规则文件，对应safeFuncGuard_permision.yml中的department
+    PSS: # 多个产品由一个仓库管理规则文件，对应business_permision.yml中的
       repoName: CICD%2FpipChecker # 接入需提供的参数1
       admin: bogking # 接入需提供的参数2
       subAdmin: zhangsan # 接入需提供的参数3
@@ -30,7 +30,7 @@ uploadFilePath:
       destBranch: master # 接入需提供的参数5
       privateToken: xxx # 接入需提供的参数6
       localRepoPath: /starlab/gitRepos/pipChecker/ # 本地仓库目录，用于提交规则文件
-      # localRepoPath: D:\coding\isource\starlab\SafeFuncChecker
+      # localRepoPath: D:\coding\github\businessChecker
       cmd: git add . && git commit -am "更新流水线检查规则" && git push -u origin master:personal/bogking
 
 # cookies settings.

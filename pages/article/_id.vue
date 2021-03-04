@@ -17,7 +17,16 @@ export default {
     // const user = await $axios.$get('/user-info')
     const user = article($axios)
     return await { user }
+  },
+  async mounted() {
+    await this.$axios({
+      url: '/server-middleware/user-info',
+      method: 'get',
+      params: {}
+    }).then(response => {
+      console.log(response.data)
+      this.user = response.data
+    })
   }
-  // mounted: {}
 }
 </script>

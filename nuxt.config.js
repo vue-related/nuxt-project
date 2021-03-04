@@ -45,7 +45,7 @@ export default {
     '@nuxtjs/proxy'
   ],
 
-  serverMiddleware: ['~/server-middleware/koa'],
+  serverMiddleware: ['~/server-middleware/koa.js'],
 
   // axios与proxy模块的说明：
   // axios.proxy:false: nuxt仅将axios请求匹配serverMiddleware，匹配到就执行，匹配不到就404。
@@ -53,11 +53,11 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: `http://${process.env.HOST || '127.0.0.1'}:${process.env.PORT || 3010}/api/v1`, // url = base url + request url
-    prefix: 'api/v1',
+    prefix: '/api/v1',
     // withCredentials: true, // send cookies when cross-domain requests
     progress: true, // true as default
     retry: { retries: 3 },
-    proxy: false, // Can be also an object with default options.
+    proxy: true, // Can be also an object with default options.
     timeout: 5000 // request timeout
   },
   proxy: {
