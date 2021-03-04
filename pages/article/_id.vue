@@ -1,19 +1,23 @@
 <template>
   <div>
     <div>this is article page.</div>
-    {{ user }}
+    <div>
+      {{ user }}
+    </div>
+    <nuxt-link to="/" rel="noopener noreferrer" class="button--green">go back home</nuxt-link>
   </div>
 </template>
 
 <script>
+import { article } from '~/api/article'
 export default {
   layout: 'content',
   async asyncData({ $axios }) {
     debugger
-    console.log('lala')
     // const user = await $axios.$get('/user-info')
-    return await { user: 123 }
-  },
-  mounted: {}
+    const user = article($axios)
+    return await { user }
+  }
+  // mounted: {}
 }
 </script>

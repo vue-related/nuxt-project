@@ -11,7 +11,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'default'
+}
 </script>
 
 <style>

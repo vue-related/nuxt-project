@@ -3,7 +3,7 @@ export default {
   telemetry: false,
   server: {
     host: '127.0.0.1',
-    port: 3015
+    port: 3011
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
