@@ -32,9 +32,18 @@ router.use(async (ctx, next) => {
   next()
 })
 
-router.get('/server-middleware/user-info', async (ctx, next) => {
+router.get('/middleware/article', async (ctx, next) => {
   debugger
-  await console.log('in router get')
+  await console.log('in server middleware get:/middleware/article')
+  next()
+  ctx.response.status = 200
+  ctx.response.type = 'application/json'
+  ctx.response.body = Object.assign({}, { name: 'a', age: 1 }, { c: 333 })
+})
+
+router.get('/server/user-info', async (ctx, next) => {
+  debugger
+  await console.log('in server middleware get:/server/user-info')
   next()
   ctx.response.status = 200
   ctx.response.type = 'application/json'

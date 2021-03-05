@@ -6,15 +6,9 @@
   "private": true,
   "main": "api-server/index.js",
   "keywords": [],
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0",
-      "port": 3001
-    }
-  },
   "scripts": {
     "dev": "nuxt",
-    "dev-debug": "node --inspect-brk ./node_modules/nuxt/bin/nuxt dev --port 3021",
+    "dev-debug": "node --inspect-brk ./node_modules/nuxt/bin/nuxt dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

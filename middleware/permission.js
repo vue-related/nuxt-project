@@ -42,6 +42,7 @@ export default function ({ route, store, redirect, req, res }) {
 
   // 获取UA，后续拦截爬虫
   // store.commit('SET_UA', isServer ? req.headers['user-agent'] : navigator.userAgent)
+  debugger
 
   // 在服务端执行
   if (isServer) {

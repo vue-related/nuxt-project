@@ -57,7 +57,7 @@ export default {
     // withCredentials: true, // send cookies when cross-domain requests
     progress: true, // true as default
     retry: { retries: 3 },
-    proxy: true, // Can be also an object with default options.
+    proxy: false, // Can be also an object with default options.
     timeout: 5000 // request timeout
   },
   proxy: {

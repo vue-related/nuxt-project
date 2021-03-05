@@ -10,6 +10,7 @@ export default function ({ $axios, store, redirect, error: nuxtError }) {
   $axios.onRequest(
     config => {
       // do something before request is sent
+      debugger
       console.log('Making request to ' + config.url)
 
       // if (store.state.token) {
@@ -39,7 +40,7 @@ export default function ({ $axios, store, redirect, error: nuxtError }) {
   $axios.onResponse(
     response => {
       // console.log('response data is: ' + response.data)
-
+      debugger
       const res = response.data
       res.isResCorrect = true
       // if the custom code is not 20000, it is judged as an error.
