@@ -4,7 +4,7 @@
       <Logo />
       <h1 class="title">nuxt3-demo-project</h1>
       <div class="links">
-        <nuxt-link to="/article" rel="noopener noreferrer" class="button--green">go to article</nuxt-link>
+        <nuxt-link to="/article" rel="noopener noreferrer"><el-button type="success">go to article</el-button></nuxt-link>
       </div>
     </div>
   </div>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  layout: 'default'
+  layout: 'default' // 默认就是'default'，可以不写
 }
 </script>
 
