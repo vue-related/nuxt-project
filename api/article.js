@@ -3,7 +3,7 @@
  */
 export function login($axios, params) {
   return $axios({
-    url: '/user/login',
+    url: '/server-middleware/user/login',
     method: 'post',
     data: params
   })
@@ -11,7 +11,7 @@ export function login($axios, params) {
 
 export function getInfo($axios, params) {
   return $axios({
-    url: '/user/info',
+    url: '/server-middleware/user/info',
     method: 'get',
     params
   })
@@ -19,16 +19,16 @@ export function getInfo($axios, params) {
 
 export function logout($axios) {
   return $axios({
-    url: '/user/logout',
+    url: '/server-middleware/user/logout',
     method: 'post'
   })
 }
 
 export function getArticle($axios, params) {
   // 写法一：正常执行plugin/axios.js拦截器
-  // return $axios({ url: '/middleware/article', method: 'get', params })
+  // return $axios({ url: '/server-middleware/article', method: 'get', params })
   // 写法二：正常执行plugin/axios.js拦截器，但注意返回值是res.data的内容
-  return $axios.$get('/middleware/article', params)
+  return $axios.$get('/server-middleware/article', params)
 }
 
 export function getPermission($axios, params) {}

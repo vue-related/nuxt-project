@@ -14,7 +14,7 @@ export default {
   async asyncData({ $axios }) {
     // 写法一：使用axios，正常执行plugins/axios.js拦截器.
     // await $axios({
-    //   url: '/middleware/article',
+    //   url: '/server-middleware/article',
     //   method: 'get',
     //   params: {}
     // }).then(response => {
@@ -22,7 +22,7 @@ export default {
     // })
     // 写法二：使用axios.methods，正常执行plugins/axios.js拦截器，
     // 但method会返回res.data内的数据，plugins/axios.js要注意$axios()和$axios.$get()两种写法的返回值，不建议混用.
-    // const user = await $axios.$get('/middleware/article')
+    // const user = await $axios.$get('/server-middleware/article')
     // console.log(`user is ${JSON.stringify(user)}`)
     // 写法三：推荐写法，调用api，正常执行plugins/axios.js拦截器
     // const user = await getArticle($axios)

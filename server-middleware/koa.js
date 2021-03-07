@@ -32,7 +32,7 @@ router.use(async (ctx, next) => {
   next()
 })
 
-router.get('/middleware/article', async (ctx, next) => {
+router.get('/article', async (ctx, next) => {
   debugger
   await console.log('in server middleware get:/middleware/article')
   next()
@@ -41,7 +41,7 @@ router.get('/middleware/article', async (ctx, next) => {
   ctx.response.body = Object.assign({}, { name: 'a', age: 1 }, { c: 333 })
 })
 
-router.get('/server/user-info', async (ctx, next) => {
+router.get('/user-info', async (ctx, next) => {
   debugger
   await console.log('in server middleware get:/server/user-info')
   next()
@@ -53,6 +53,6 @@ router.get('/server/user-info', async (ctx, next) => {
 app.use(router.routes())
 app.use(router.allowedMethods())
 export default {
-  path: '/api/v1',
+  path: '/api/v1/server-middleware',
   handler: app.callback()
 }

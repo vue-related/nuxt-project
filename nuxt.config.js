@@ -57,11 +57,12 @@ export default {
     // withCredentials: true, // send cookies when cross-domain requests
     progress: true, // true as default
     retry: { retries: 3 },
-    proxy: false, // Can be also an object with default options.
+    proxy: true, // Can be also an object with default options.
     timeout: 5000 // request timeout
   },
   proxy: {
-    '/api/': { target: 'http://localhost:3010/', pathRewrite: { '^/api/': '/api' }, changeOrigin: true }
+    // '/api/v1/server-middleware': { target: 'http://localhost:3010/', pathRewrite: { '^/api/': '/api' }, changeOrigin: true },
+    '/api/v1/api-server': { target: 'http://localhost:3010/', pathRewrite: { '^/api/v1/api-server': '/api/v1' }, changeOrigin: true }
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
