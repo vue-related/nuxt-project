@@ -26,9 +26,9 @@ export function logout($axios) {
 
 export function getArticle($axios, params) {
   // 写法一：正常执行plugin/axios.js拦截器
-  // return $axios({ url: '/server-middleware/article', method: 'get', params })
+  // return $axios({ url: '/server-middleware/business/article', method: 'get', params })
   // 写法二：正常执行plugin/axios.js拦截器，但注意返回值是res.data的内容
-  return $axios.$get('/server-middleware/article', params)
+  return $axios.$get('/server-middleware/business/article', params)
 }
 
 export function getPermission($axios, params) {}

@@ -27,31 +27,32 @@ import Router from 'koa-router'
 const router = new Router()
 const app = new Koa()
 
+// my private modules
+const apiRouter = require('./routers') // API接口路由
+
 router.use(async (ctx, next) => {
   await console.log('in router use')
   next()
 })
 
-router.get('/article', async (ctx, next) => {
-  debugger
-  await console.log('in server middleware get:/middleware/article')
-  next()
-  ctx.response.status = 200
-  ctx.response.type = 'application/json'
-  ctx.response.body = Object.assign({}, { name: 'a', age: 1 }, { c: 333 })
-})
-
-router.get('/user-info', async (ctx, next) => {
-  debugger
-  await console.log('in server middleware get:/server/user-info')
-  next()
-  ctx.response.status = 200
-  ctx.response.type = 'application/json'
-  ctx.response.body = Object.assign({}, { name: 'a', age: 1 }, { c: 333 })
-})
-
+// RESTFul API接口路由: /api/...
+router.use(apiRouter.routes()).use(apiRouter.allowedMethods())
 app.use(router.routes())
 app.use(router.allowedMethods())
+
+// serverMiddleware中应该是不需要配置404页面的，
+// 因为本身是被挂载到局部路径上，不具备未匹配路由的拦截能力，这部分功能由nuxt内部实现了。
+// 路由内部的错误由内部try...catch拦截，也不集中处理了。
+app.on('error', function (err, ctx) {
+  /* 错误的集中处理:
+   * log 出来
+   * 写入日志
+   * 写入数据库
+   *  ...
+   */
+  console.log(`logging error ${err.message}`)
+})
+
 export default {
   path: '/api/v1/server-middleware',
   handler: app.callback()

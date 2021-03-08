@@ -19,7 +19,7 @@ const gConfig = getGlobalConfig()
 const separator = os.platform() === 'win32' ? '\\' : '/' // or 'linux'
 
 const router = new Router({
-  prefix: '/security-guard'
+  prefix: '/business'
 })
 // 当前模块权限与配置
 router.get('/permission', async (ctx, next) => {
@@ -407,7 +407,7 @@ router.post('/guard-report', async (ctx, next) => {
 })
 
 // 界面查询门禁运行统计
-router.get('/guard-statistics', async (ctx, next) => {
+router.get('/statistics', async (ctx, next) => {
   ctx.response.body = await { code: 20000, data: {}, message: '' }
 })
 
