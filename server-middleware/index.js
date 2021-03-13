@@ -24,11 +24,11 @@
 // koa独立使用: 即使最终没有匹配到具体method的路由，也会按照定义顺序执行局部匹配的use()。
 import Koa from 'koa'
 import Router from 'koa-router'
+// my private modules
+import apiRouter from './routers' // API接口路由
+
 const router = new Router()
 const app = new Koa()
-
-// my private modules
-const apiRouter = require('./routers') // API接口路由
 
 router.use(async (ctx, next) => {
   await console.log('in router use')

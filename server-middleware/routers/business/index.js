@@ -1,4 +1,4 @@
-const Router = require('koa-router')
+import Router from 'koa-router'
 
 const router = new Router({
   prefix: '/business'
@@ -21,4 +21,5 @@ function timer() {
     }, 3000)
   })
 }
-module.exports = router
+
+export default router

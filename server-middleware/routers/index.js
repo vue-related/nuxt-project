@@ -1,6 +1,6 @@
-const Router = require('koa-router')
-const businessRouter = require('./business/index')
-const userRouter = require('./login/index')
+import Router from 'koa-router'
+import businessRouter from './business/index'
+import userRouter from './login/index'
 
 const router = new Router({
   // prefix: '/'
@@ -15,4 +15,4 @@ router.use(async (ctx, next) => {
 router.use(businessRouter.routes())
 router.use(userRouter.routes())
 
-module.exports = router
+export default router
