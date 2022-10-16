@@ -45,7 +45,7 @@ export default {
     '@nuxtjs/proxy'
   ],
 
-  serverMiddleware: ['@/server-middleware/index.js'],
+  serverMiddleware: ['~/server-middleware/index.js'],
 
   // axios与proxy模块的说明：
   // axios.proxy:false: nuxt仅将axios请求匹配serverMiddleware，匹配到就执行，匹配不到就404。
