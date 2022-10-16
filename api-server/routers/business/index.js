@@ -19,7 +19,7 @@ const gConfig = getGlobalConfig()
 const separator = os.platform() === 'win32' ? '\\' : '/' // or 'linux'
 
 const router = new Router({
-  prefix: '/security-guard'
+  prefix: '/business'
 })
 // 当前模块权限与配置
 router.get('/permission', async (ctx, next) => {
@@ -407,7 +407,7 @@ router.post('/guard-report', async (ctx, next) => {
 })
 
 // 界面查询门禁运行统计
-router.get('/guard-statistics', async (ctx, next) => {
+router.get('/statistics', async (ctx, next) => {
   ctx.response.body = await { code: 20000, data: {}, message: '' }
 })
 
@@ -432,7 +432,7 @@ function MR(mrInfo) {
   return new BbPromise(function (resolve, reject) {
     getRepoIdFromIsource(mrInfo.repoName).then(d => {
       superagent
-        .post(`http://rnd-isource.huawei.com/api/v3/projects/${mrInfo.repoName}/merge_requests`)
+        .post(`http://www.github.com/api/v1/${mrInfo.repoName}/merge_requests`)
         .set('PRIVATE-TOKEN', mrInfo.privateToken)
         .set('Content-Type', 'application/json')
         .send({
@@ -442,8 +442,8 @@ function MR(mrInfo) {
           target_project_id: d,
           assignee_id: mrInfo.committer,
           reviewers: mrInfo.reviewer,
-          title: '[Story20201214000427]更新的安全门禁规则文件',
-          content: '【修改方案】:更新的安全门禁规则文件\r\n【影响范围】:安全门禁规则'
+          title: '更新配置文件',
+          content: '更新配置文件'
         })
         .end((err, res) => {
           // Calling the end function will send the request

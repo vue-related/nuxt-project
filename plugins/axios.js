@@ -3,21 +3,22 @@
  * 下述配置与axios配置写法不同，是@nuxtjs/axios定制的写法
  */
 import { MessageBox, Message } from 'element-ui'
-import { getToken } from '~/libs/auth'
+// import { getToken } from '~/libs/auth'
 
 export default function ({ $axios, store, redirect, error: nuxtError }) {
   // request interceptor
   $axios.onRequest(
     config => {
       // do something before request is sent
+      debugger
       console.log('Making request to ' + config.url)
 
-      if (store.state.token) {
-        // let each request carry token
-        // ['X-Token'] is a custom headers key
-        // please modify it according to the actual situation
-        config.headers['X-Token'] = getToken()
-      }
+      // if (store.state.token) {
+      //   // let each request carry token
+      //   // ['X-Token'] is a custom headers key
+      //   // please modify it according to the actual situation
+      //   config.headers['X-Token'] = getToken()
+      // }
       return config
     },
     error => {
@@ -39,7 +40,7 @@ export default function ({ $axios, store, redirect, error: nuxtError }) {
   $axios.onResponse(
     response => {
       // console.log('response data is: ' + response.data)
-
+      debugger
       const res = response.data
       res.isResCorrect = true
       // if the custom code is not 20000, it is judged as an error.

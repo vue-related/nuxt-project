@@ -1,3 +1,3 @@
 <template>
-  <div>同element admin</div>
+  <div>this is error page, same as element admin.</div>
 </template>
